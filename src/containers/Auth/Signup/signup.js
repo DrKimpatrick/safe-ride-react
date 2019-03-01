@@ -1,15 +1,20 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import SignupForm from '../../../components/Auth/signup/signupForm';
+import userSignUpRequest from '../../../actions/AuthActions/signUpAction';
 
 class Signup extends Component {
 
     state = {
+        // Email
         email: '',
         emailError:'',
         emailHasError: true,
+        // Password
         password: '',
         passwordError: '',
         passwordHasError: true,
+        // Confirm password
         confirmPass: '',
         confirmPassError: '',
         confirmPassHasError: true
@@ -26,7 +31,6 @@ class Signup extends Component {
             this.validateEmail(event.target.value)
         }
         
-        console.log(this.state)
     }
 
     // Validate password
@@ -59,14 +63,23 @@ class Signup extends Component {
             this.setState({emailError: '', emailHasError: false})
         }
     }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        console.log(this.state)
+        this.props.dispatch(userSignUpRequest(this.state))
+    }
+
     render(){
         return(
             <SignupForm
                 handleChange={this.handleChange}
                 state={this.state}
+                handleSubmit={this.handleSubmit}
             />
         )   
     }
 }
 
-export default Signup;
+
+export default connect()(Signup);

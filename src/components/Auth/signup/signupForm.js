@@ -1,8 +1,8 @@
 import React from 'react';
 
-const SignupForm = ({handleChange, state}) => (
+const SignupForm = ({handleChange, state, handleSubmit}) => (
     <div className='offset-md-4 col-md-4'>
-        <form>
+        <form onSubmit={ handleSubmit }>
             <div className={'text-center text-muted'}><h2>SignupForm</h2></div>
             <hr/>
             <div className="form-group">
