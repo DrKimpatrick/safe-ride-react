@@ -1,0 +1,15 @@
+.signupFormWrapper {
+  /* margin-top: 10%; */
+  /* background-color: red; */
+}
+
+.formColumn {
+  box-shadow: 0px 0px 50px -10px green;  /* horizontal, vertical shadow spred inset  */
+  padding: 10px;
+}
+.innerSignuwrapper {
+  padding: 10%;
+}
+.imageClass {
+  height: 100%;
+}
